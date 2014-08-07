@@ -1,0 +1,175 @@
+lwang031@well.cs.ucr.edu$ ls -l -a
+总计 84
+drwx------ 3 lwang031 classes  4096 Aug  7 12:36 .
+drwx------ 4 lwang031 classes  4096 Aug  7 12:24 ..
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:36 a.out
+drwx------ 8 lwang031 classes  4096 Aug  7 12:26 .git
+-rwx------ 1 lwang031 classes 13186 Aug  7 12:31 .nfs00000000004444ae000005ba
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444af000005b9
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444b0000005bc
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:34 .nfs00000000004444b1000005bd
+-rwx------ 1 lwang031 classes 13050 Aug  7 12:33 .nfs00000000004444b2000005bb
+-rw------- 1 lwang031 classes  2507 Aug  7 12:34 rshell.cpp
+-rw------- 1 lwang031 classes 12288 Aug  7 12:34 .rshell.cpp.swo
+-rw------- 1 lwang031 classes     0 Aug  7 12:35 TEST
+lwang031@well.cs.ucr.edu$ ls - -l  -a
+ls：无效选项 -- -
+请尝试执行“ls --help”来获取更多信息。
+lwang031@well.cs.ucr.edu$ ls #-l -a
+ls: #-l: 没有那个文件或目录
+lwang031@well.cs.ucr.edu$ ls # -l -a
+a.out  rshell.cpp  TEST
+lwang031@well.cs.ucr.edu$ ls /-l -a
+总计 84
+drwx------ 3 lwang031 classes  4096 Aug  7 12:36 .
+drwx------ 4 lwang031 classes  4096 Aug  7 12:24 ..
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:36 a.out
+drwx------ 8 lwang031 classes  4096 Aug  7 12:26 .git
+-rwx------ 1 lwang031 classes 13186 Aug  7 12:31 .nfs00000000004444ae000005ba
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444af000005b9
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444b0000005bc
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:34 .nfs00000000004444b1000005bd
+-rwx------ 1 lwang031 classes 13050 Aug  7 12:33 .nfs00000000004444b2000005bb
+-rw------- 1 lwang031 classes  2507 Aug  7 12:34 rshell.cpp
+-rw------- 1 lwang031 classes 12288 Aug  7 12:34 .rshell.cpp.swo
+-rw------- 1 lwang031 classes     0 Aug  7 12:35 TEST
+lwang031@well.cs.ucr.edu$ ls -/l -a
+ls: -: 没有那个文件或目录
+ls: l: 没有那个文件或目录
+lwang031@well.cs.ucr.edu$ ls                                                                                        -l                                                           //                     -a
+总计 84
+drwx------ 3 lwang031 classes  4096 Aug  7 12:36 .
+drwx------ 4 lwang031 classes  4096 Aug  7 12:24 ..
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:36 a.out
+drwx------ 8 lwang031 classes  4096 Aug  7 12:26 .git
+-rwx------ 1 lwang031 classes 13186 Aug  7 12:31 .nfs00000000004444ae000005ba
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444af000005b9
+-rw------- 1 lwang031 classes     0 Aug  7 12:29 .nfs00000000004444b0000005bc
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:34 .nfs00000000004444b1000005bd
+-rwx------ 1 lwang031 classes 13050 Aug  7 12:33 .nfs00000000004444b2000005bb
+-rw------- 1 lwang031 classes  2507 Aug  7 12:34 rshell.cpp
+-rw------- 1 lwang031 classes 12288 Aug  7 12:34 .rshell.cpp.swo
+-rw------- 1 lwang031 classes     0 Aug  7 12:35 TEST
+lwang031@well.cs.ucr.edu$ cat main    rshell.cpp
+#include <iostream>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string>
+#include <string.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+using namespace std;
+
+
+
+int main()
+{
+    
+    while(1)
+    {
+
+        char usr[256]={0};
+        char host[256] ={0};
+        getlogin_r(usr,(sizeof(usr)-1));
+        gethostname(host,(sizeof(host)-1));
+        cout<<usr<<"@"<<host<<"$ ";
+
+         string str;
+         std::getline(std::cin, str);
+         char* cmd = (char*)malloc(str.length()*sizeof(void*));
+            //whole command line input by user
+
+         strcpy (cmd,str.c_str());
+         int a = 0;
+
+//"-------------pre-parse-------------------------------"<<endl;        
+         char * pch; //represent each part of cmd
+         pch = strtok (cmd," /");
+
+         char** argv2;//arguments or "&"
+         int i = 0;  //track the number of arguments
+         while (pch != NULL){
+            if (strcmp(pch, "exit")==0){
+                exit(0);
+            }
+            if(strcmp(pch, "#") == 0) break;
+            if (strcmp(pch,"&") ==0){
+                i--;
+                a = 1;
+            }
+            pch = strtok(NULL," /");
+            i++;
+        }
+//"--------------------parse-------------------------"<<endl;
+        strcpy(cmd, str.c_str()); 
+        argv2 = (char**)malloc(((i)*sizeof(void*))+1 ); 
+        pch = strtok (cmd," /");
+        char* cm =pch;//the command
+        int j =0;
+        while (pch != NULL){
+            if(strcmp(pch, "#") == 0){
+                break;
+            }
+            if(strcmp(pch,"&")!=0){
+                argv2[j] = new char[strlen(pch)];
+                strcpy(argv2[j], pch);
+                
+                pch = strtok(NULL, " /");
+                j++;
+            }
+            else break;//"&" has to be put at last
+         }   
+
+        argv2[j] = 0;
+//"-----------------------execute-------------------------"<<endl;
+        pid_t pid;
+        int status;
+        if((pid = fork())<0){    //fork failed
+            perror("fork failed: ");
+            exit(1);
+        }
+        else if (pid == 0){  //child process
+            if( execvp(cm,(char *const*)argv2) < 0){
+                perror("execute failed: ");
+                free (argv2);
+                exit(1);
+            }
+             
+            
+        }
+        else {
+            if(a == 0){
+              while (wait(&status) != pid);
+            }
+           //     waitpid(getpid(), &status ,0);
+            
+           
+        }
+    }
+}
+lwang031@well.cs.ucr.edu$ ex  exit    gean    geany
+fsdfsdf(don not      nothing withoug t close ing geany)
+lwang031@well.cs.ucr.edu$ execute failed: : No such file or directory
+lwang031@well.cs.ucr.edu$ geany &
+lwang031@well.cs.ucr.edu$ I cann  kep ep typeing command
+execute failed: : No such file or directory
+lwang031@well.cs.ucr.edu$ ls - l  l
+总计 16
+-rwx------ 1 lwang031 classes 12134 Aug  7 12:36 a.out
+-rw------- 1 lwang031 classes  2507 Aug  7 12:34 rshell.cpp
+-rw------- 1 lwang031 classes     0 Aug  7 12:35 TEST
+lwang031@well.cs.ucr.edu$ exit
+~/cs100/rshell/bin
+lwang031@well $ ls
+[00m[00;32ma.out[00m*  [00mrshell.cpp[00m  [00mTEST[00m
+[m~/cs100/rshell/bin
+lwang031@well $ vim TEST
+[?1000h7[?47h[?1h=[1;24r[m[H[2J[24;1H"TEST" "TEST" 0L, 0C[>c[1;1H[1m[33m  1 [m
+[1m[34m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1        全部[1;5H[?1000l[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[24;53H^[        [1;5H[24;53H          [1;5H[24;53H^[        [1;5H[24;53H          [1;5H[24;53H^[        [1;5H[24;53H          [1;5H[24;53H^[        [1;5H[24;53H          [1;5H[24;53H:         [1;5H[24;1H[K[24;1H:w:w:[24;2H[K[24;1H:q:q[?1002l[24;1H[K[24;1H[?1l>[2J[?47l8~/cs100/rshell/bin
+lwang031@well $ cat TEST
+~/cs100/rshell/bin
+lwang031@well $ exit
+exit
+
+Script done on Thu 07 Aug 2014 12:43:38 PM PDT
