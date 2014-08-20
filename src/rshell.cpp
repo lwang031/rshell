@@ -54,11 +54,10 @@ cerr<< "---------------in run com---------------------------------"<<argv[1]<<en
             i = 0;
             while (i< parse.size()) {
                
-////////////////////////////////////////////////////////////////////
 
 
 cout<<"---------------------------parse vector--------------------  "<<endl;
-                int h = 0;
+                int  h = 0;
                 k = 0;
                 j = 0;
                 int q = 0;
@@ -69,7 +68,7 @@ cout<<"---------------------------parse vector--------------------  "<<endl;
                 outfile = "";
            
 
-                for (int h = 0; h < parse[i].size(); h++){ 
+                for ( h = 0; h < parse[i].size(); h++){ 
 
                     cout<<"order is: "<<order<<" parse[i].size: "
                         <<parse[i].size()<<" "<<parse[i][h]<<endl;
@@ -80,7 +79,7 @@ cout<<"---------------------------parse vector--------------------  "<<endl;
                         cerr<<"< cannot be here!!\n";
                         exit(1);
                     }
-                    flag1 == 11;
+                    flag1 = 11;
                     if (k != 0){
                         cerr<<"cannot put two redi symbol in one argument!!\n";
                         exit(1);
@@ -225,7 +224,7 @@ cout<<"------in parse vec_-----------------argv[h]: "<<argv[h]<<endl;
 
 
 
- ///////////////////////////////////////////////////////////////////////////               
+           
 
                 if ((pid = fork()) == -1 ){
                     perror("cannot fork: ");
@@ -480,7 +479,6 @@ cout<<"------------------run parse ------------------------"<<endl;
     cout<<"i: "<<i<<"   rlp: "<<r<<l<<p<<rr<<endl;
     
     int j = 0;
-    int k = 0;
     int m = 0;
     int z = 0;
 
