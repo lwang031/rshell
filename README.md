@@ -6,7 +6,7 @@ This is a program that execute the function of shell command. It uses getlin to 
 
 * 1. The username and hostname are set up contain only 256 spaces, the content cannot exceed this; otherwise, it cannot show the information of a user.
 
-*2. The getlogin_r does work in local computer, but doesn't work after start scripting
+* 2. The getlogin_r does work in local computer, but doesn't work after start scripting
 
 * 3. The strtok function cannot handle first argument perfectly, `bin/rshell` and `./a.out` will work since the path is work because they are in the same directry as the program. But it doesn't work if a wrong command was input such as `./b.out`, it will return instead of finding other paths.
 * 4. The program also cannot parse the command like "-l-a" it will treat then as only one part not "-l", "-a".
