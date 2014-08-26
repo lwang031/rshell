@@ -1,0 +1,135 @@
+脚本启动于 Tue 26 Aug 2014 11:00:37 AM PDT
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshell/teststony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell/tests$ cd ..
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshelltony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell$  [Kc[Kcd src[K[K[K[K[K[Kmake
+g++ -Wall -Werror -ansi -pedantic src/rshell.cpp -o ./bin/rshell
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshelltony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell$ bin/s[Krshell
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ bin/rshell
+run bin/rshell
+child pid: 4668
+child pid: 4669
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ exit
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ^\退出 (核心已转储)
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshelltony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell$ bin/rshell[6Pmakecd ..[1Pmake
+g++ -Wall -Werror -ansi -pedantic src/rshell.cpp -o ./bin/rshell
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshelltony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell$ makebin/rshell
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls -la
+child pid: 4681
+child pid: 4682
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+总用量 36
+drwxrwxr-x  6 tony tony 4096 Aug 26 10:50 .
+drwxrwxr-x 10 tony tony 4096 Aug 26 09:53 ..
+drwxrwxr-x  2 tony tony 4096 Aug 26 11:03 bin
+drwxrwxr-x  8 tony tony 4096 Aug 26 10:21 .git
+-rw-rw-r--  1 tony tony 1485 Aug 23 11:28 LICENSE
+-rw-rw-r--  1 tony tony  117 Aug 26 10:20 Makefile
+-rw-rw-r--  1 tony tony  843 Aug 23 11:28 README.md
+drwxrwxr-x  2 tony tony 4096 Aug 26 11:03 src
+drwxrwxr-x  2 tony tony 4096 Aug 26 10:59 tests
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cat
+child pid: 4681
+child pid: 4683
+present the location of finding command(or not): 0  /usr/local/sbin/cat
+present the location of finding command(or not): 1  /usr/local/bin/cat
+present the location of finding command(or not): 2  /usr/sbin/cat
+present the location of finding command(or not): 3  /usr/bin/cat
+present the location of finding command(or not): 4  /sbin/cat
+present the location of finding command(or not): 5  /bin/cat
+get
+get
+get
+get
+^Ccannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cd    ls
+child pid: 4681
+child pid: 4696
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+bin  LICENSE  Makefile	README.md  src	tests
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cd .
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls
+child pid: 4681
+child pid: 4697
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+bin  LICENSE  Makefile	README.md  src	tests
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cd ..
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls
+child pid: 4681
+child pid: 4698
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+assn2  assn3  assn4  exe  lab6	rshell	ucr-cs100
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cd cs  ucr-ca1  s100/rs            rshell
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ vi  cd 
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls
+child pid: 4681
+child pid: 4700
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+deja-dup	  lwang031			公共的	视频  文档  音乐
+examples.desktop  PlayOnLinux's virtual drives	模板	图片  下载  桌面
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ cd lwang031/cs100/rshell
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls  cat   ge edit
+child pid: 4681
+child pid: 4701
+present the location of finding command(or not): 0  /usr/local/sbin/gedit
+present the location of finding command(or not): 1  /usr/local/bin/gedit
+present the location of finding command(or not): 2  /usr/sbin/gedit
+present the location of finding command(or not): 3  /usr/bin/gedit
+^Zcannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ fg
+^Zcannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ bg
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ ls
+child pid: 4681
+child pid: 4715
+present the location of finding command(or not): 0  /usr/local/sbin/ls
+present the location of finding command(or not): 1  /usr/local/bin/ls
+present the location of finding command(or not): 2  /usr/sbin/ls
+present the location of finding command(or not): 3  /usr/bin/ls
+present the location of finding command(or not): 4  /sbin/ls
+present the location of finding command(or not): 5  /bin/ls
+bin  LICENSE  Makefile	README.md  src	tests
+cannot getlogin: : No such process
+@tony-HP-ProBook-4431s$ exit
+]0;tony@tony-HP-ProBook-4431s: ~/lwang031/cs100/rshelltony@tony-HP-ProBook-4431s:~/lwang031/cs100/rshell$ exit
+exit
+
+脚本完成，于 Tue 26 Aug 2014 11:07:08 AM PDT
